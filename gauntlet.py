@@ -1,0 +1,77 @@
+import numpy as np
+from sklearn.neural_network import MLPRegressor
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from yellowbrick.model_selection.validation_curve import ValidationCurve
+from yellowbrick.regressor import ResidualsPlot
+from yellowbrick.model_selection import LearningCurve
+from yellowbrick.regressor import PredictionError
+from yellowbrick.target import FeatureCorrelation
+from matplotlib import pyplot as plt
+
+
+
+# Models to support:
+# MLP Regressor
+# kNN Regressor
+# Gradient Boosting Trees
+# Linear Regression
+# Decision Tree Regressor
+
+def mae(actual_values, predicted_values):
+    return np.abs(actual_values - predicted_values).sum() / actual_values.shape[0]
+
+def _cross_validate(model_cls, data, labels, cv=5, **kwargs):
+    errs = []
+    for i in range(5):
+        X_train, Y_train, X_test, Y_test = train_test_split(data, labels)
+        mask = np.random.rand(data.shape[0]) < 0.8
+        train_data = data[mask]
+        train_labels = labels[mask]
+        test_data = data[np.logical_not(mask)]
+        test_labels = labels[np.logical_not(mask)]
+
+        model = model_cls(**kwargs).fit(train_data, train_labels)
+        pred_labels = model.predict(test_data)
+        err = mae(test_labels, pred_labels)
+        errs.append(err)
+    
+    errs = np.array(err)
+    errs_std = errs.std()
+    errs_avg = errs.mean()
+    return errs_avg, errs_std
+
+
+
+def test_models(train_data, train_labels, models='all', cv=5):
+    models = {
+        'mlp': MLPRegressor,
+        'knn': KNeighborsRegressor,
+        'tree': DecisionTreeRegressor,
+        'gbt': GradientBoostingRegressor
+    }
+
+    if models != 'all':
+        models = {name: models[name] for name in models}
+
+    for name, model_fn in models.items():
+        err_avg, err_std = _cross_validate(model_fn, train_data, train_labels)
+        print('Model: %s'%model_fn.__name__)
+        print('\tAverage MAE: %f, MAE Standard Dev: %f\n'%(err_avg, err_std))
+
+
+def viz_model(model, data, labels):
+    viz_tools = [LearningCurve, ResidualsPlot, PredictionError]
+    fig, axes = plt.subplots(3, 1)
+    axes = axes[0]
+    X_train, Y_train, X_test, Y_test = train_test_split(data, labels)
+
+    for viz_tool in viz_tools:
+        viz = viz_tool(model)
+        viz.fit(X_train, Y_train)
+        viz.score(X_test, Y_test)
+        viz.poof()
+
