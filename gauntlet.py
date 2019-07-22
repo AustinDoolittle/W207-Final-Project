@@ -12,7 +12,7 @@ from yellowbrick.model_selection import LearningCurve
 from yellowbrick.regressor import PredictionError
 from yellowbrick.target import FeatureCorrelation
 from matplotlib import pyplot as plt
-
+from functools import partial
 
 
 # Models to support:
@@ -25,7 +25,7 @@ from matplotlib import pyplot as plt
 def mae(actual_values, predicted_values):
     return np.abs(actual_values - predicted_values).sum() / actual_values.shape[0]
 
-def _cross_validate(model_cls, data, labels, cv=5, **kwargs):
+def cross_validate(model_cls, data, labels, cv=5, **kwargs):
     errs = []
     for i in range(5):
         X_train, Y_train, X_test, Y_test = train_test_split(data, labels)
@@ -40,13 +40,13 @@ def _cross_validate(model_cls, data, labels, cv=5, **kwargs):
         err = mae(test_labels, pred_labels)
         errs.append(err)
     
-    errs = np.array(err)
+    errs = np.array(errs)
     errs_std = errs.std()
     errs_avg = errs.mean()
     return errs_avg, errs_std
 
 _models = {
-    'mlp': MLPRegressor,
+    'mlp': partial(MLPRegressor, hidden_layer_sizes=[20], max_iter=1000),
     'knn': KNeighborsRegressor,
     'tree': DecisionTreeRegressor,
     'gbt': GradientBoostingRegressor
@@ -61,7 +61,7 @@ def test_models(train_data, train_labels, models='all', quiet=False, cv=5):
     train_results = {}
     for name, model_fn in models.items():
 
-        err_avg, err_std = _cross_validate(model_fn, train_data, train_labels)
+        err_avg, err_std = cross_validate(model_fn, train_data, train_labels)
         if not quiet:
             print('Model: %s'%model_fn.__name__)
             print('\tAverage MAE: %f, MAE Standard Dev: %f\n'%(err_avg, err_std))
@@ -75,7 +75,8 @@ def test_models(train_data, train_labels, models='all', quiet=False, cv=5):
 def compare_datasets(data1, data1_labels, data2, data2_labels):
     print('Dataset 1 Row Count: %i, Feature Count: %i'%(data1.shape[0], data1.shape[1]))
     print('Dataset 2 Row Count: %i, Feature Count: %i'%(data2.shape[0], data2.shape[1]))
-
+    print('Cross validating and comparing...\n')
+    
     data1_results = test_models(data1, data1_labels, quiet=True)
     data2_results = test_models(data2, data2_labels, quiet=True)
 
@@ -84,21 +85,18 @@ def compare_datasets(data1, data1_labels, data2, data2_labels):
 
         d1_error = data1_result['error_average']
         d2_error = data2_result['error_average']
-        pct_change = (d1_error - d2_error) / d1_error
+        pct_change = (d2_error - d1_error) / d1_error
         print('Model: %s, Data 1 error: %.3f, Data 2 error: %.2f, change: %.3f%%' \
             %(data1_key, d1_error, d2_error, pct_change * 100))
 
-def viz_model(model, data, labels):
-    model = _models[model]
-
+def viz_model(model_cls, data, labels, **kwargs):
     viz_tools = [LearningCurve, ResidualsPlot, PredictionError]
     # fig, axes = plt.subplots(ncols=len(viz_tools), figsize=(20,10))
 
     X_train, X_test, Y_train, Y_test = train_test_split(data, labels)
 
     for i, viz_tool in enumerate(viz_tools):
-        # viz = viz_tool(model(), ax=axes[i])
-        viz = viz_tool(model())
+        viz = viz_tool(model_cls(**kwargs), scoring='neg_mean_absolute_error')
         viz.fit(X_train, Y_train)
         try:
             viz.score(X_test, Y_test)
