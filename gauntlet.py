@@ -47,7 +47,7 @@ def cross_validate(model_cls, data, labels, cv=5, **kwargs):
 
 _models = {
     'mlp': partial(MLPRegressor, hidden_layer_sizes=[20], max_iter=1000),
-    'knn': KNeighborsRegressor,
+    'knn': partial(KNeighborsRegressor, n_jobs=-1),
     'tree': DecisionTreeRegressor,
     'gbt': GradientBoostingRegressor
 }
@@ -63,7 +63,7 @@ def test_models(train_data, train_labels, models='all', quiet=False, cv=5):
 
         err_avg, err_std = cross_validate(model_fn, train_data, train_labels)
         if not quiet:
-            print('Model: %s'%model_fn.__name__)
+            print('Model: %s'%name)
             print('\tAverage MAE: %f, MAE Standard Dev: %f\n'%(err_avg, err_std))
         train_results[name] = {
             'error_average': err_avg,
