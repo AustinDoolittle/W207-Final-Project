@@ -38,6 +38,16 @@
 	"finishedsquarefeet50": {
 		"type": "drop"
 	},
+	"transactiondate": {
+		"type": "drop"
+	},
+	"transactionmonth": {
+		"type": "categorical",
+		"method": "asis",
+		"kwargs": {
+			"include_na": false
+		}
+	}
 	"lotsizesquarefeet": {
 		"type": "continuous",
 		"method": "asis",
