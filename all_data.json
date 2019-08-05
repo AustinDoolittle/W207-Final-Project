@@ -20,112 +20,174 @@
 	"feature_cnt": {
 		"type": "drop"
 	},
-	"taxdelinquencyyear": {
+	"county": {
 		"type": "drop"
 	},
-	"finishedsquarefeet6": {
+	"latlng": {
 		"type": "drop"
 	},
-	"finishedsquarefeet12": {
+	"county": {
 		"type": "drop"
 	},
-	"finishedsquarefeet13": {
+	"city": {
 		"type": "drop"
 	},
-	"finishedsquarefeet15": {
-		"type": "drop"
-	},
-	"finishedsquarefeet50": {
-		"type": "drop"
-	},
-	"transactiondate": {
-		"type": "drop"
+	"county_city": {
+		"type": "categorical",
+		"method": "asis",
+		"kwargs": {
+			"include_na": true
+		}
 	},
 	"transactionmonth": {
 		"type": "categorical",
 		"method": "asis",
 		"kwargs": {
-			"include_na": false
+			"include_na": true
 		}
-	}
+	},
+	"taxdelinquencyyear": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
+		}
+	},
+	"finishedsquarefeet6": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
+		}
+	},
+	"finishedsquarefeet12": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
+		}
+	},
+	"finishedsquarefeet13": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
+		}
+	},
+	"finishedsquarefeet15": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
+		}
+	},
+	"finishedsquarefeet50": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
+		}
+	},
 	"lotsizesquarefeet": {
 		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
 		}
 	},
 	"fullbathcnt": {
 		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
 		}
 	},
 	"calculatedbathnbr": {
 		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
 		}
 	},
 	"landtaxvaluedollarcnt": {
 		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
 		}
 	},
 	"yearbuilt": {
 		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
 		}
 	},
 	"calculatedfinishedsquarefeet": {
 		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
 		}
 	},
 	"structuretaxvaluedollarcnt": {
 		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
 		}
 	},
 	"taxvaluedollarcnt": {
 		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
 		}
 	},
 	"taxamount": {
 		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
 		}
 	},
 	"assessmentyear": {
 		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
+			"handle_missing": "random",
+			"normalize": true,
+			"dummy_missing": true
 		}
 	},
 	"poolsizesum":{
