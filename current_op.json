@@ -26,16 +26,10 @@
 	"basementsqft": {
 		"type": "drop"
 	},
-	"basementsqft": {
-		"type": "drop"
-	},
 	"yardbuildingsqft26": {
 		"type": "drop"
 	},
 	"finishedsquarefeet13": {
-		"type": "drop"
-	},
-	"finishedsquarefeet15": {
 		"type": "drop"
 	},
 
@@ -54,12 +48,6 @@
 	"feature_cnt": {
 		"type": "drop"
 	},
-	"transactiondate": {
-		"type": "drop"
-	},
-	"county": {
-		"type": "drop"
-	},
 	"city": {
 		"type": "drop"
 	},
@@ -70,21 +58,90 @@
 		"type": "drop"
 	},
 	"transactionmonth": {
+		"type": "drop"
+	},
+	"finishedsquarefeet13": {
+		"type": "drop"
+	},
+	"calculatedbathnbr": {
+		"type": "drop"
+	},
+	"assessmentyear": {
+		"type": "drop"
+	},
+	"poolsizesum":{
+		"type": "drop"
+	},
+	"yardbuildingsqft26": {
+		"type": "drop"
+	},
+	"architecturalstyletypeid": {
+		"type": "drop"
+	},
+	"regionidneighborhood": {
+		"type": "drop"
+	},
+	"propertyzoningdesc": {
+		"type": "drop"
+	},
+	"regionidcity": {
+		"type": "drop"
+	},
+	"regionidzip": {
+		"type": "drop"
+	},
+	"propertycountylandusecode": {
+		"type": "drop"
+	},
+	"regionidcounty": {
+		"type": "drop"
+	},
+	"airconditioningtypeid": {
 		"type": "categorical",
 		"method": "bin",
 		"kwargs": {
-			"bin_vals": [[1,2,3], [4,5,6], [7,8,9],[10,11,12]]
+			"bin_vals": [[1,2,3,4,7,9,10,11,12,13], [5,6,8]],
+			"include_na": true
 		}
 	},
-	"lotsizesquarefeet": {
+	"bathroomcnt": {
 		"type": "continuous",
+		"method": "asis", 
+		"kwargs": {
+			"handle_missing": "random"
+		}
+	},
+	"bedroomcnt": {
+		"type": "continuous",
+		"method": "asis", 
+		"kwargs": {
+			"handle_missing": "random"
+		}
+	},
+	"buildingqualitytypeid": {
+		"type": "categorical",
+		"method": "bin",
+		"kwargs": {
+			"bin_vals": [[1,2,3,4], [5,6,7,8]],
+			"include_na": true
+		}
+	},
+	"decktypeid": {
+		"type": "categorical",
 		"method": "asis",
 		"kwargs": {
-			"handle_missing": "drop",
+			"include_na": true
+		}
+	},
+	"finishedfloor1squarefeet": {
+		"type": "continuous",
+		"method": "asis", 
+		"kwargs": {
+			"handle_missing": "random",
 			"normalize": true
 		}
 	},
-	"finishedsquarefeet6": {
+	"calculatedfinishedsquarefeet": {
 		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
@@ -96,11 +153,11 @@
 		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
-			"handle_missing": "drop",
+			"handle_missing": "random",
 			"normalize": true
 		}
 	},
-	"finishedsquarefeet13": {
+	"finishedsquarefeet15": {
 		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
@@ -116,79 +173,7 @@
 			"normalize": true
 		}
 	},
-	"fullbathcnt": {
-		"type": "continuous",
-		"method": "asis",
-		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
-		}
-	},
-	"calculatedbathnbr": {
-		"type": "continuous",
-		"method": "asis",
-		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
-		}
-	},
-	"landtaxvaluedollarcnt": {
-		"type": "continuous",
-		"method": "asis",
-		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
-		}
-	},
-	"yearbuilt": {
-		"type": "continuous",
-		"method": "asis",
-		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
-		}
-	},
-	"calculatedfinishedsquarefeet": {
-		"type": "continuous",
-		"method": "asis",
-		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
-		}
-	},
-	"structuretaxvaluedollarcnt": {
-		"type": "continuous",
-		"method": "asis",
-		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
-		}
-	},
-	"taxvaluedollarcnt": {
-		"type": "continuous",
-		"method": "asis",
-		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
-		}
-	},
-	"taxamount": {
-		"type": "continuous",
-		"method": "asis",
-		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
-		}
-	},
-	"assessmentyear": {
-		"type": "continuous",
-		"method": "asis",
-		"kwargs": {
-			"handle_missing": "drop",
-			"normalize": true
-		}
-	},
-	"taxdelinquencyyear": {
+	"finishedsquarefeet6": {
 		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
@@ -196,15 +181,107 @@
 			"normalize": true
 		}
 	},
-	"poolsizesum":{
+	"fireplacecnt": {
 		"type": "continuous",
-		"method": "bin", 
+		"method": "asis", 
 		"kwargs": {
-			"include_na": true,
-			"bins": 10
+			"handle_missing": "random"
 		}
 	},
-	"yardbuildingsqft26": {
+	"fullbathcnt": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random"
+		}
+	},
+	"garagecarcnt": {
+		"type": "continuous",
+		"method": "asis", 
+		"kwargs": {
+			"handle_missing": "random"
+		}
+	},
+	"garagetotalsqft": {
+		"type": "continuous",
+		"method": "asis", 
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": false
+		}
+	},
+	"hashottuborspa": {
+		"type": "categorical",
+		"method": "tf",
+		"kwargs": {}
+	},
+	"heatingorsystemtypeid": {
+		"type": "categorical",
+		"method": "bin",
+		"kwargs": {
+			"bin_vals": [[1,2,3,4,5,6,7,8,9,11,12,15,16,17,18,19,20,21,22,23,24,25], [10,13,14]],
+			"include_na": true
+		}
+	},
+	"lotsizesquarefeet": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true
+		}
+	},
+	"poolcnt": {
+		"type": "categorical",
+		"method": "tf", 
+		"kwargs": {}
+	},
+	"propertylandusetypeid": {
+		"type": "categorical",
+		"method": "bin",
+		"kwargs": {
+			"bin_vals": [[1,2,3,4,5,7,8,9,11,12,15,16,17,18,19,20,23,24], [6,10,13,14,21,22,25]],
+			"include_na": true
+		}
+	},
+	"roomcnt": {
+		"type": "continuous",
+		"method": "asis", 
+		"kwargs": {
+			"handle_missing": "random"
+		}
+	},
+	"threequarterbathnbr": {
+		"type": "continuous",
+		"method": "asis", 
+		"kwargs": {
+			"handle_missing": "random"
+		}
+	},
+	"unitcnt": {
+		"type": "continuous",
+		"method": "asis", 
+		"kwargs": {
+			"handle_missing": "random"
+		}
+	},
+	"yardbuildingsqft17": {
+		"type": "continuous",
+		"method": "asis", 
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true
+		}
+	},
+	"yearbuilt": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true
+		}
+	},
+	"numberofstories": {
 		"type": "continuous",
 		"method": "bin", 
 		"kwargs": {
@@ -217,18 +294,49 @@
 		"method": "tf",
 		"kwargs": {}
 	},
-	"architecturalstyletypeid": {
-		"type": "categorical",
-		"method": "asis", 
-		"kwargs": {
-			"include_na": true
-		}
-	},
-	"decktypeid": {
-		"type": "categorical",
+	"structuretaxvaluedollarcnt": {
+		"type": "continuous",
 		"method": "asis",
 		"kwargs": {
-			"include_na": true
+			"handle_missing": "random",
+			"normalize": true
+		}
+	},
+	"landtaxvaluedollarcnt": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true
+		}
+	},
+	"taxvaluedollarcnt": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true
+		}
+	},
+	"taxamount": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true
+		}
+	},
+	"taxdelinquencyflag": {
+		"type": "categorical",
+		"method": "tf",
+		"kwargs": {}
+	},	
+	"taxdelinquencyyear": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true
 		}
 	},
 	"pooltypeid": {
@@ -238,177 +346,7 @@
 			"include_na": true
 		}
 	},
-	"taxdelinquencyflag": {
-		"type": "categorical",
-		"method": "tf",
-		"kwargs": {}
-	},
-	"hashottuborspa": {
-		"type": "categorical",
-		"method": "tf",
-		"kwargs": {}
-	},
-	"yardbuildingsqft17": {
-		"type": "continuous",
-		"method": "bin", 
-		"kwargs": {
-			"include_na": true,
-			"bins": 10
-		}
-	},
-	"finishedfloor1squarefeet": {
-		"type": "continuous",
-		"method": "bin", 
-		"kwargs": {
-			"include_na": true,
-			"bins": 10
-		}
-	},
-	"threequarterbathnbr": {
-		"type": "continuous",
-		"method": "bin", 
-		"kwargs": {
-			"include_na": true,
-			"bins": 5
-		}
-	},
-	"fireplacecnt": {
-		"type": "continuous",
-		"method": "bin", 
-		"kwargs": {
-			"include_na": true,
-			"bins": 5
-		}
-	},
-	"poolcnt": {
-		"type": "categorical",
-		"method": "tf", 
-		"kwargs": {}
-	},
-	"numberofstories": {
-		"type": "continuous",
-		"method": "bin", 
-		"kwargs": {
-			"include_na": true,
-			"bins": 10
-		}
-	},
-	"airconditioningtypeid": {
-		"type": "categorical",
-		"method": "bin",
-		"kwargs": {
-			"bin_vals": [[1,2,3,4,7,9,10,11,12,13], [5,6,8]],
-			"include_na": true
-		}
-	},
-	"garagecarcnt": {
-		"type": "continuous",
-		"method": "bin", 
-		"kwargs": {
-			"include_na": true,
-			"bins": 5
-		}
-	},
-	"garagetotalsqft": {
-		"type": "continuous",
-		"method": "bin", 
-		"kwargs": {
-			"include_na": true,
-			"bins": 10
-		}
-	},
-	"regionidneighborhood": {
-		"type": "categorical",
-		"method": "asis",
-		"kwargs": {
-			"include_na": true
-		}
-	},
-	"heatingorsystemtypeid": {
-		"type": "categorical",
-		"method": "bin",
-		"kwargs": {
-			"bin_vals": [[1,2,3,4,5,6,7,8,9,11,12,15,16,17,18,19,20,21,22,23,24,25], [10,13,14]],
-			"include_na": true
-		}
-	},
-	"buildingqualitytypeid": {
-		"type": "categorical",
-		"method": "bin",
-		"kwargs": {
-			"bin_vals": [[1,2,3,4], [5,6,7,8]],
-			"include_na": true
-		}
-	},
-	"unitcnt": {
-		"type": "continuous",
-		"method": "bin", 
-		"kwargs": {
-			"include_na": true,
-			"bins": 10
-		}
-	},
-	"propertyzoningdesc": {
-		"type": "categorical",
-		"method": "asis",
-		"kwargs": {
-			"include_na": true
-		}
-	},
-	"regionidcity": {
-		"type": "categorical",
-		"method": "asis",
-		"kwargs": {
-			"include_na": true
-		}
-	},
-	"regionidzip": {
-		"type": "categorical",
-		"method": "asis",
-		"kwargs": {
-			"include_na": true
-		}
-	},
-	"roomcnt": {
-		"type": "continuous",
-		"method": "bin", 
-		"kwargs": {
-			"include_na": true,
-			"bins": 10
-		}
-	},
-	"bathroomcnt": {
-		"type": "continuous",
-		"method": "bin", 
-		"kwargs": {
-			"include_na": true,
-			"bins": 10
-		}
-	},
-	"bedroomcnt": {
-		"type": "continuous",
-		"method": "bin", 
-		"kwargs": {
-			"include_na": true,
-			"bins": 10
-		}
-	},
-	"propertylandusetypeid": {
-		"type": "categorical",
-		"method": "bin",
-		"kwargs": {
-			"bin_vals": [[1,2,3,4,5,7,8,9,11,12,15,16,17,18,19,20,23,24], [6,10,13,14,21,22,25]],
-			"include_na": true
-		}
-	},
-	"propertycountylandusecode": {
-		"type": "categorical",
-		"method": "asis",
-		"kwargs": {
-			"include_na": true
-		}
-	},
-	"regionidcounty": {
+	"county": {
 		"type": "categorical",
 		"method": "asis",
 		"kwargs": {
