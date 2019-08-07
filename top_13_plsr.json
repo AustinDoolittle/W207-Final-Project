@@ -1,0 +1,255 @@
+{
+	"latitude": {
+		"type": "drop"
+	},
+	"longitude": {
+		"type": "drop"
+	},
+	"storytypeid": {
+		"type": "drop"
+	},
+	"calculatedbathnbr": {
+		"type": "drop"
+	},
+	"fips": {
+		"type": "drop"
+	},
+	"transactiondate": {
+		"type": "drop"
+	},
+	"censustractandblock": {
+		"type": "drop"
+	},
+	"rawcensustractandblock": {
+		"type": "drop"
+	},
+	"basementsqft": {
+		"type": "drop"
+	},
+	"yardbuildingsqft26": {
+		"type": "drop"
+	},
+	"finishedsquarefeet13": {
+		"type": "drop"
+	},
+  "poolsizesum": {
+		"type": "drop"
+	},
+	"buildingclasstypeid": {
+		"type": "drop"
+	},
+	"architecturalstyletypeid": {
+		"type": "drop"
+	},
+	"typeconstructiontypeid": {
+		"type": "drop"
+	},
+	"feature_cnt": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "zero"
+		}
+	},
+	"city": {
+		"type": "drop"
+	},
+	"latlng": {
+		"type": "drop"
+	},
+	"county_city": {
+		"type": "drop"
+	},
+	"transactionmonth": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "zero"
+		}
+	},
+	"finishedsquarefeet13": {
+		"type": "drop"
+	},
+	"calculatedbathnbr": {
+		"type": "drop"
+	},
+	"assessmentyear": {
+		"type": "drop"
+	},
+	"poolsizesum":{
+		"type": "drop"
+	},
+	"yardbuildingsqft26": {
+		"type": "drop"
+	},
+	"architecturalstyletypeid": {
+		"type": "drop"
+	},
+	"regionidneighborhood": {
+		"type": "drop"
+	},
+	"propertyzoningdesc": {
+		"type": "drop"
+	},
+	"regionidcity": {
+		"type": "drop"
+	},
+	"regionidzip": {
+		"type": "drop"
+	},
+	"propertycountylandusecode": {
+		"type": "drop"
+	},
+	"regionidcounty": {
+		"type": "drop"
+	},
+	"airconditioningtypeid": {
+		"type": "drop"
+	},
+	"bathroomcnt": {
+		"type": "drop"
+	},
+	"bedroomcnt": {
+		"type": "drop"
+	},
+	"buildingqualitytypeid": {
+		"type": "drop"
+	},
+	"decktypeid": {
+		"type": "drop"
+	},
+	"finishedfloor1squarefeet": {
+		"type": "drop"
+	},
+	"calculatedfinishedsquarefeet": {
+		"type": "drop"
+	},
+	"finishedsquarefeet12": {
+		"type": "drop"
+	},
+	"finishedsquarefeet15": {
+		"type": "drop"
+	},
+	"finishedsquarefeet50": {
+		"type": "drop"
+	},
+	"finishedsquarefeet6": {
+		"type": "drop"
+	},
+	"fireplacecnt": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "zero"
+		}
+	},
+	"fullbathcnt": {
+		"type": "drop"
+	},
+	"garagecarcnt": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "zero"
+		}
+	},
+	"garagetotalsqft": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "zero"
+		}
+	},
+	"hashottuborspa": {
+		"type": "categorical",
+		"method": "tf",
+		"kwargs": {}
+	},
+	"heatingorsystemtypeid": {
+		"type": "drop"
+	},
+	"lotsizesquarefeet": {
+		"type": "drop"
+	},
+	"poolcnt": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "zero"
+		}
+	},
+	"propertylandusetypeid": {
+		"type": "drop"
+	},
+	"roomcnt": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "zero"
+		}
+	},
+	"threequarterbathnbr": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "zero"
+		}
+	},
+	"unitcnt": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random"
+		}
+	},
+	"yardbuildingsqft17": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "zero"
+		}
+	},
+	"yearbuilt": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true
+		}
+	},
+	"numberofstories": {
+		"type": "drop"
+	},
+	"fireplaceflag": {
+		"type": "drop"
+	},
+	"structuretaxvaluedollarcnt": {
+		"type": "drop"
+	},
+	"landtaxvaluedollarcnt": {
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "random",
+			"normalize": true
+		}
+	},
+	"taxvaluedollarcnt": {
+		"type": "drop"
+	},
+	"taxamount": {
+		"type": "drop"
+	},
+	"taxdelinquencyflag": {
+		"type": "drop"
+	},
+	"taxdelinquencyyear": {
+		"type": "drop"
+	},
+	"pooltypeid": {
+		"type": "drop"
+	},
+	"county": {
+		"type": "drop"
+	}
+}
