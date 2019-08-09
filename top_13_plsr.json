@@ -169,7 +169,11 @@
 		"type": "drop"
 	},
 	"lotsizesquarefeet": {
-		"type": "drop"
+		"type": "continuous",
+		"method": "asis",
+		"kwargs": {
+			"handle_missing": "zero"
+		}
 	},
 	"poolcnt": {
 		"type": "continuous",
